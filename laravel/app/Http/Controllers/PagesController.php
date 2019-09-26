@@ -18,7 +18,7 @@ class PagesController extends Controller
         return view('welcome')->withTasks($tasks)->withFoo("foobar");
     }
 
-    public function old_welcom()
+    public function old_welcome()
     {
         return view('old_welcome');
     }
