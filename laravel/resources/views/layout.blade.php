@@ -3,7 +3,7 @@
 <html>
 
 <head>
-    <title>@yield('title', 'Laravel Playground')</title>
+    <title>@yield('title', 'Laravel Playground!')</title>
 </head>
 
 <body>
