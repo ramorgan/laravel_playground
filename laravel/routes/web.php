@@ -19,7 +19,7 @@ Route::get('/', function () {
         "Go to work",
     ];
 
-    return view('welcome', ['tasks' => $tasks]);
+    return view('welcome')->withTasks($tasks)->withFoo("foobar");
 });
 
 Route::get('/old_home', function () {
