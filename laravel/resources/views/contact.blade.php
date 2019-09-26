@@ -7,9 +7,7 @@
 </head>
 
 <body>
-<h1>Hello World</h1>
-
-<p><a href="/contact">Contact us</a></p>
+    <h1>Contact Form</h1>
 
 </body>
 
