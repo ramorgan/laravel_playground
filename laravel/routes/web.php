@@ -11,7 +11,13 @@
 |
 */
 
-Route::get('/', "PagesController@home");
-Route::get('/old_home', "PagesController@home");
-Route::get('/about', "PagesController@about");
-Route::get('/contact', "PagesController@contact");
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::resource('projects', 'ProjectsController');
+
+Route::post('projects/{project}/tasks/', 'ProjectTasksController@store');
+
+Route::post('completed-task/{task}', 'CompletedTasksController@store');
+Route::delete('completed-task/{task}', 'CompletedTasksController@destroy');

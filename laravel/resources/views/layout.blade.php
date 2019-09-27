@@ -3,20 +3,19 @@
 <html>
 
 <head>
-    <title>@yield('title', 'Laravel Playground!')</title>
+    <title></title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.css"/>
+    <style>
+        .is-complete {
+            text-decoration: line-through;
+        }
+    </style>
 </head>
 
-<body>
-
-
-
-<ul>
-    <li><a href="/">Home</a> </li>
-    <li><a href="/contact">Contact us</a></li>
-    <li><a href="/about">About</a></li>
-</ul>
-
-@yield('content')
+<body style="padding-top: 40px;">
+<div class="container">
+    @yield('content')
+</div>
 </body>
 
 </html>
