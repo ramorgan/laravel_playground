@@ -16,7 +16,7 @@ class ProjectsController extends Controller
 
     public function show(Project $project)
     {
-        return $project;
+        return view('Projects.show', compact('project'));
     }
 
     public function create()
