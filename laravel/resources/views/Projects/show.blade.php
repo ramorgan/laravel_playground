@@ -14,11 +14,17 @@
 
     @if ($project->tasks->count())
         <div>
-            <ul>
-                @foreach($project->tasks as $task)
-                    <li>{{$task->description}}</li>
-                @endforeach
-            </ul>
+            @foreach($project->tasks as $task)
+                <div>
+                    <form method="POST" action="/tasks/{{$task->id}}">
+                        @method("PATCH")
+                        <label class="checkbox" for="completed">
+                            <input type="checkbox" name="completed" onchange="this.form.submit()">
+                            {{$task->description}}
+                        </label>
+                    </form>
+                </div>
+            @endforeach
         </div>
     @endif
 @endsection
