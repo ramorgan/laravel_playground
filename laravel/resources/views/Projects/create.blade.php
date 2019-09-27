@@ -9,14 +9,15 @@
         <div class="field">
             <label class="label" for="title">Project Title</label>
             <div class="control">
-                <input type="text" class="input {{$errors->has('title') ? 'is-danger' : ''}}" name="title" required/>
+                <input type="text" class="input {{$errors->has('title') ? 'is-danger' : ''}}"
+                       name="title" required value="{{old('title')}}"/>
             </div>
         </div>
         <div class="field">
             <label class="label" for="description">Project description</label>
             <div class="control">
                 <textarea class="textarea {{$errors->has('title') ? 'is-danger' : ''}}"
-                          name="description" required></textarea>
+                          name="description" required>{{old('description')}}</textarea>
             </div>
         </div>
         <div>
