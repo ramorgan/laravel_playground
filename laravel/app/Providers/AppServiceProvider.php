@@ -2,7 +2,6 @@
 
 namespace App\Providers;
 
-use App\Services\Twitter;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Schema;
 
@@ -15,10 +14,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app->singleton(Twitter::class, function (){
-            //@todo: api-key should be a value pulled from the .env file
-            return new Twitter('api-key');
-        });
+        //
     }
 
     /**

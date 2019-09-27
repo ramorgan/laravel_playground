@@ -11,9 +11,20 @@
 |
 */
 
+
+
+
+Route::get('/', function (\App\Services\Twitter $twitter){
+    dd($twitter);
+
+});
+
+
+/*
 Route::get('/', function () {
     return view('welcome');
 });
+*/
 
 Route::resource('projects', 'ProjectsController');
 
