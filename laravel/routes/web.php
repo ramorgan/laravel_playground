@@ -15,35 +15,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-/*
- * GET /projects (index)
- *
- * GET /projects/create (create)
- *
- * GET /projects/1 (show)
- *
- * POST /projects (store)
- *
- * GET /projects/1/edit (edit)
- *
- * PATCH /projects/1 (update)
- *
- * DELETE /projects/1 (destroy)
- *
- */
-//Route::get('/projects', 'ProjectsController@index');
-//
-//Route::get('/projects/create', 'ProjectsController@create');
-//
-//Route::get('/project/{project}', 'ProjectsController@show');
-//
-//Route::post('/projects', 'ProjectsController@store');
-//
-//Route::get('/project/{project}/edit', 'ProjectsController@edit');
-//
-//Route::patch('/project/{project}', 'ProjectsController@update');
-//
-//Route::delete('/project/{project}', 'ProjectsController@destroy');
-
 Route::resource('projects', 'ProjectsController');
 
