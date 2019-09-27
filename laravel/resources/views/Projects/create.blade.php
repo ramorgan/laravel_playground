@@ -1,11 +1,9 @@
-@extends('layout)
+@extends('layout')
 @section('content')
     <h1>Create a new Projects</h1>
-
+{{-- --}}
     <form method="POST" action="/projects">
-
-        {{csrf_field()}}
-
+        @csrf
         <div class="field">
             <label class="label" for="title">Project Title</label>
             <div class="control">
@@ -20,8 +18,10 @@
                           name="description" required>{{old('description')}}</textarea>
             </div>
         </div>
-        <div>
-            <button type="submit"> Create Project</button>
+        <div class="field">
+            <div class="control">
+                <button type="submit" class="is-link"> Create Project</button>
+            </div>
         </div>
 
         @if($errors->any())
@@ -29,7 +29,7 @@
                 <ul>
                     @foreach($errors->all() as $error)
                         <li> {{$error}} </li>
-                        @endforeach
+                    @endforeach
                 </ul>
             </div>
         @endif
