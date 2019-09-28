@@ -22,10 +22,16 @@ class AuthServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(Gate $gate)
     {
         $this->registerPolicies();
 
-        //
+        //@todo: get a better way to authenticate the admin.
+        $gate::before(function ($user){
+            //not so good implementation of Admin id is 1.
+            if ($user->id == 1) {
+                return true;
+            }
+        });
     }
 }
