@@ -14,11 +14,12 @@
 
 
 
-/** Project Routs */
-Route::resource('projects', 'ProjectsController');
+/** Project Routes */
+Route::resource('projects', 'ProjectsController')->middleware('auth');
 
 Route::post('projects/{project}/tasks/', 'ProjectTasksController@store');
 
+/** Tasks Routes */
 Route::post('completed-task/{task}', 'CompletedTasksController@store');
 Route::delete('completed-task/{task}', 'CompletedTasksController@destroy');
 
