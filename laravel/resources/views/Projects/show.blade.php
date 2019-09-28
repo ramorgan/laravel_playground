@@ -2,14 +2,17 @@
 
 @section('content')
 
-    <h1 class="title">{{$project->title}}</h1>
-
-    <div class="content">
-        {{$project->description}}
-
+    <div class="card-header">
         <p>
-            <a href="/projects/{{$project->id}}/edit">Edit</a>
+            {{$project->title}}</p>
+        <p>
+            &nbsp;<a href="/projects/{{$project->id}}/edit">Edit</a>
         </p>
+    </div>
+    <div class="card-body">
+        <div class="content">
+            {{$project->description}}
+        </div>
     </div>
 
     @if ($project->tasks->count())
@@ -50,5 +53,6 @@
         </div>
         @include('errors')
     </form>
+
 
 @endsection
