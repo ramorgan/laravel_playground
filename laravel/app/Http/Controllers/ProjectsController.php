@@ -21,19 +21,20 @@ class ProjectsController extends Controller
 
     public function show(Project $project)
     {
-        if ($project->owner_id !== auth()->id()) {
-            abort(403);
-        }
+
+        $this->authorize('update', $project);
         return view('Projects.show', compact('project'));
     }
 
     public function create()
     {
+
         return view('Projects.create');
     }
 
     public function store()
     {
+
         $attributes = \request()->validate([
             'title' => ['required','min:3', 'max:254'],
             'description' => ['required', 'min:3'],
@@ -49,11 +50,14 @@ class ProjectsController extends Controller
     public function edit(Project $project)
     {
 
+        $this->authorize('update', $project);
         return view('Projects.edit', compact('project'));
     }
 
     public function update(Project $project)
     {
+
+        $this->authorize('update', $project);
         $project->update(\request(['title', 'description']));
 
         return redirect('/projects');
@@ -61,6 +65,8 @@ class ProjectsController extends Controller
 
     public function destroy(Project $project)
     {
+
+        $this->authorize('update', $project);
         $project->delete();
 
         return redirect('/projects');
