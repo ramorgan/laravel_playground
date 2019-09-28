@@ -17,7 +17,7 @@ class ProjectsController extends Controller
     {
 
         return view('Projects.index', [
-            'projects' => auth()->projects,
+            'projects' => auth()->user()->projects,
 
         ]);
     }
