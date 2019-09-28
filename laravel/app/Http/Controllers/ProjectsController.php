@@ -15,15 +15,18 @@ class ProjectsController extends Controller
 
     public function index()
     {
-        $projects = Project::where('owner_id', auth()->id())->get();
 
-        return view('Projects.index', compact('projects'));
+        return view('Projects.index', [
+            'projects' => auth()->projects,
+
+        ]);
     }
 
     public function show(Project $project)
     {
 
         $this->authorize('update', $project);
+
         return view('Projects.show', compact('project'));
     }
 
@@ -37,7 +40,7 @@ class ProjectsController extends Controller
     {
 
         $attributes = \request()->validate([
-            'title' => ['required','min:3', 'max:254'],
+            'title' => ['required', 'min:3', 'max:254'],
             'description' => ['required', 'min:3'],
         ]);
 
@@ -45,9 +48,7 @@ class ProjectsController extends Controller
 
         $project = Project::create($attributes);
 
-        \Mail::to('ramorgan212@gmai.com')->send(
-            new ProjectCreated($project)
-        );
+        \Mail::to('ramorgan212@gmai.com')->send(new ProjectCreated($project));
 
         return redirect('/projects');
     }
@@ -56,6 +57,7 @@ class ProjectsController extends Controller
     {
 
         $this->authorize('update', $project);
+
         return view('Projects.edit', compact('project'));
     }
 
