@@ -38,3 +38,9 @@ cp "$ADDON_ROOT/config/database.php" "$PROJECT_ROOT/$LARAVEL_ROOT/config/databas
 echo "------------------------------------"
 echo -e "${green}Installation complete.${NC}"
 echo -e "  URL: ${yellow}http://$VIRTUAL_HOST${NC}"
+
+# set up database stuff
+# php artisan migrate
+
+#npm stuff for authentication
+# npm install && npm run dev
