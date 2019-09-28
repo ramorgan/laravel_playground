@@ -14,19 +14,21 @@
 
 
 
-
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-
+/** Project Routs */
 Route::resource('projects', 'ProjectsController');
 
 Route::post('projects/{project}/tasks/', 'ProjectTasksController@store');
 
 Route::post('completed-task/{task}', 'CompletedTasksController@store');
 Route::delete('completed-task/{task}', 'CompletedTasksController@destroy');
+
+
+/** */
+Route::get('/', function () {
+    return view('welcome');
+});
+
+
 
 Auth::routes();
 
