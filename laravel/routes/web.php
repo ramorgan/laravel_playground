@@ -14,10 +14,7 @@
 
 
 
-Route::get('/', function (\App\Services\Twitter $twitter){
-    dd($twitter);
-
-});
+Route::get('/');
 
 
 /*
@@ -32,3 +29,7 @@ Route::post('projects/{project}/tasks/', 'ProjectTasksController@store');
 
 Route::post('completed-task/{task}', 'CompletedTasksController@store');
 Route::delete('completed-task/{task}', 'CompletedTasksController@destroy');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
