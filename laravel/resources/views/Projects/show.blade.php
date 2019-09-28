@@ -3,10 +3,13 @@
 @section('content')
 
     <div class="card-header">
+        <h1 class="title">
+            {{$project->title}}
+        </h1>
+    </div>
+    <div class="card-header">
         <p>
-            {{$project->title}}</p>
-        <p>
-            &nbsp;<a href="/projects/{{$project->id}}/edit">Edit</a>
+            <a href="/projects/{{$project->id}}/edit">Edit</a>
         </p>
     </div>
     <div class="card-body">
@@ -17,7 +20,7 @@
 
     @if ($project->tasks->count())
         <div class="box">
-            <h3>Project Tasks:</h3>
+            <h2>Project Tasks:</h2>
             @foreach($project->tasks as $task)
                 <div>
                     <form method="POST" action="/completed-task/{{$task->id}}">
